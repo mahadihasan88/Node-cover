@@ -1,11 +1,18 @@
 
 const express=require('express');
+const _=require('lodash');
 const app=express();
 const port =5000;
 const people =require('./people');
-  console.log(people[5]);
 
+const fs=require('fs');
 
+fs.readFile('mahadi.txt',(err,data)=>{
+    console.log(data.toString());
+});
+console.log("Bangladesh is small country");
+
+ 
 
 
 
