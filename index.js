@@ -1,36 +1,20 @@
 
-const express=require('express');
-const _=require('lodash');
-const app=express();
-const port =5000;
-const people =require('./people');
+///Event Handler in Node js
 
-const fs=require('fs');
+const EventEmitter=require('events');
 
-fs.readFile('mahadi.txt',(err,data)=>{
-    console.log(data.toString());
-});
-console.log("Bangladesh is small country");
+const emitter=new EventEmitter();
 
- 
+///Register Event listener to listen the Event
 
+emitter.addListener('ballPlay',()=>{
+    console.log("ball kora hoa gese 6 mere dau");
+})
 
-
-
+//Event gotano(Event raise)
+setTimeout(() => {
+    emitter.emit('ballPlay');
+}, 2000);
 
 
 
-
-
-
-
-
-
-
-
-app.get('/', (req, res) => {
-    res.send('Challenge is the key to success')
-  })
-
-
-  app.listen(port,()=>console.log(`Mahadi Your Server Running on port ${port}`))
