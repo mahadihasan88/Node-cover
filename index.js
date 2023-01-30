@@ -1,22 +1,15 @@
-const http=require('http');
+const express=require('express');
 
-const server=http.createServer((req,res)=>{
-    if(req.url==='/'){
-    res.write('Welcome to Node World')
-    res.end();
-    }
-    else if(req.url=='/mahadi'){
-        res.write('Mahadi you have to a industrious Person in real life');
-        res.end();
-    }
-    else{
-        res.write('Page Not Found');
-        res.end();
-    }
-});
+const app=express();
+app.use(express.json());
 
-
-server.listen(4000,()=>{
-    console.log("Server is Running on port 4000");
-
+app.get('/',(req,res)=>{
+    res.send('Client is connected with Server')
+})
+app.post('/university',(req,res)=>{
+    console.log(req.body.name);
+    res.send('Data is Send to the Server');
+})
+app.listen(5000,()=>{
+    console.log("The Server is Running on port 5000");
 })

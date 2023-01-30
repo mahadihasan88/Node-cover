@@ -1,1 +1,23 @@
-Very interesting history of Node 
+const express=require('express');
+
+ const app=express();
+// app.use(express.urlencoded());
+
+
+const router=express.Router({caseSensitive:true});
+
+app.use(router);
+const port=5050;
+router.get('/home',(req,res)=>{
+    res.send('Welcome To Node Server');
+})
+
+router.post('/bangladesh',(req,res)=>{
+    res.send('This is post page of Bangladesh');
+    console.log(req.body.university);
+    console.log(req.body.Country);
+})
+
+app.listen(port,()=>{
+    console.log(`The Server is Running on port ${port}`);
+})
