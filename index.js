@@ -5,26 +5,16 @@ const app=express();
 const admin=express();
 
 
-app.param('id',(req,res,next,id)=>{
-
-     const userData={
-        'userid':id,
-        'username':"Munirujjaman",
-        'college':'Govt Kc College Jhenaidah'
-     }
-     req.info=userData;
-
-
-    next();
-
+app.route('/about')
+.get((req,res)=>{
+    res.send(' Welcome to About  page')
 })
-
-
-
-app.get('/cse/:id',(req,res)=>{
-       console.log(req.info);
-    res.send('Get Operation Perform')
+.post((req,res)=>{
+    res.send(' Welcome to Post  page')
 })
+.put((req,res)=>{
+    res.send(' Welcome to Put  page')
+});
 
 
 
