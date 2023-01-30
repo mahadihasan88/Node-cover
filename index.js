@@ -5,16 +5,27 @@ const app=express();
 const admin=express();
 
 
-admin.get('/dashboard/content',(req,res)=>{
-    console.log(admin.mountpath);
-    res.send('Welcome to admin dashboard')
-});
+app.param('id',(req,res,next,id)=>{
 
-app.use('/admin',admin)
+     const userData={
+        'userid':id,
+        'username':"Munirujjaman",
+        'college':'Govt Kc College Jhenaidah'
+     }
+     req.info=userData;
 
-app.get('/',(req,res)=>{
-    res.send('This is main app Content')
+
+    next();
+
 })
+
+
+
+app.get('/cse/:id',(req,res)=>{
+       console.log(req.info);
+    res.send('Get Operation Perform')
+})
+
 
 
 app.listen(5000,()=>{
