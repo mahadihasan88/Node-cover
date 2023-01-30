@@ -1,7 +1,9 @@
 const express=require('express');
 
 const app=express();
-app.use(express.json());
+app.use(express.static(`${__dirname}/public`,{
+    index:"page.txt"
+}));
 
 app.get('/',(req,res)=>{
     res.send('Client is connected with Server')
