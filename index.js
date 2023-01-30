@@ -8,7 +8,8 @@ app.get('/mahadi',(req,res)=>{
 })
 
 app.get('/about',(req,res)=>{
-res.redirect('/mahadi');
+res.set('department','CSE');
+console.log(res.get('department'));
 res.end();
 })
 
