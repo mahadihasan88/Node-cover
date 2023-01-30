@@ -3,11 +3,13 @@ const app=express();
 
 
  app.set('view engin','ejs');
-
+app.get('/mahadi',(req,res)=>{
+    res.send("this is the redirected page from about page")
+})
 
 app.get('/about',(req,res)=>{
- res.cookie('id','1802006');
- res.end();
+res.redirect('/mahadi');
+res.end();
 })
 
 
