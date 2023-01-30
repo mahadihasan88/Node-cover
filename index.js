@@ -1,15 +1,15 @@
 const express=require('express');
 
 const app=express();
-app.use(express.static(`${__dirname}/public`,{
-    index:"page.txt"
-}));
+const router=express.Router();
 
-app.get('/',(req,res)=>{
+app.use(express.text());
+app.use(router);
+router.get('/',(req,res)=>{
     res.send('Client is connected with Server')
 })
-app.post('/university',(req,res)=>{
-    console.log(req.body.name);
+router.post('/university',(req,res)=>{
+    console.log(req.body);
     res.send('Data is Send to the Server');
 })
 app.listen(5000,()=>{
