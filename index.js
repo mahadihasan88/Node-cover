@@ -6,22 +6,8 @@ const app=express();
 
 
 app.get('/about',(req,res)=>{
-res.format({
-    'text/plain':()=>{
-        res.send('Hi')
-    },
-    'text/html':()=>{
-     res.render('pages/about.ejs',{
-        name:'Muslime Country all over the world'
-     })
-    },
-    'application/json':()=>{
-        res.json({title:"this is json key value system"})
-    },
-    default:()=>{
-        res.status(403).send('Not Acceptable')
-    }
-})
+ res.cookie('id','1802006');
+ res.end();
 })
 
 
