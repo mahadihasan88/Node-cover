@@ -1,20 +1,25 @@
 const express=require('express');
 
 
+
+
 const app=express();
-const admin=express();
 
 
-app.route('/about')
-.get((req,res)=>{
-    res.send(' Welcome to About  page')
+
+  
+
+app.set('view engin','ejs');
+
+
+app.get('/about',(req,res)=>{
+    res.render('pages/about.ejs',{
+        name:"United Bangladesh"
+    });
+    console.log(req.route);
 })
-.post((req,res)=>{
-    res.send(' Welcome to Post  page')
-})
-.put((req,res)=>{
-    res.send(' Welcome to Put  page')
-});
+
+
 
 
 
